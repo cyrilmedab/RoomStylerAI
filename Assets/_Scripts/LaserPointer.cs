@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static TMPro.TMP_Compatibility;
 
@@ -13,6 +14,10 @@ public class LaserPointer : MonoBehaviour
     [SerializeField]
     private bool isRightHand;
 
+    [SerializeField]
+    private TextMeshProUGUI displayText = null;
+
+
     [Header("Render Settings")]
     [SerializeField]
     private float lineWidth;
@@ -22,6 +27,9 @@ public class LaserPointer : MonoBehaviour
 
     private LineRenderer _lineRenderer;
     private bool isPointing;
+
+    private List<GameObject> processedObjects = new ();
+
 
     private void Awake()
     {
@@ -50,14 +58,17 @@ public class LaserPointer : MonoBehaviour
             //Vector3 anchorPosition = anchor.position;
             //Quaternion anchorRotation = anchor.rotation;
             //_lineRenderer.SetPosition(0, anchorPosition);
-
-            //if (Physics.Raycast(new Ray(anchorPosition, anchorRotation * Vector3.left), out RaycastHit hit, lineMax))
-            //{
-            //    _lineRenderer.SetPosition(0, anchorPosition);
-            //    _lineRenderer.SetPosition(1, hit.point);
-            //}
+            
+            Vector3 direction = isRightHand ? Vector3.right : Vector3.left;
 
             UpdateLength();
+
+            if (Physics.Raycast(new Ray(anchor.position, anchor.rotation * direction), out RaycastHit hit, lineMax))
+            {
+                GameObject hitObject = hit.transform.gameObject;
+
+                OVRSemanticClassification classification = hitObject?.GetComponent<OVRSemanticClassification>();
+            }
             
 
             yield return null;
@@ -93,5 +104,10 @@ public class LaserPointer : MonoBehaviour
         Vector3 direction = isRightHand ? anchor.right : -anchor.right;
 
         return anchor.position + (direction * lineMax);
+    }
+
+    private void AddProcessedObject(GameObject hitObject)
+    {
+        if (!processedObjects.Contains(hitObject)) processedObjects.Add(hitObject);
     }
 }

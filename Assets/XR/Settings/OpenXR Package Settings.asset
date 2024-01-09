@@ -242,6 +242,7 @@ MonoBehaviour:
   - {fileID: 4576824848938199689}
   - {fileID: -9092800809634145306}
   - {fileID: -6777081417502140001}
+  - {fileID: 6500687670063994156}
   - {fileID: 4385893304691102601}
   - {fileID: -6394049960462265605}
   - {fileID: -2525471477566447580}
@@ -353,6 +354,26 @@ MonoBehaviour:
   required: 0
   targetQuest: 1
   targetQuest2: 1
+--- !u!114 &-2508344158716366951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710975c7840e7d499bbb3757c22b0a5, type: 3}
+  m_Name: MetaXRSubsampledLayout Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Meta XR Subsampled Layout
+  version: 0.0.1
+  featureIdInternal: com.meta.openxr.feature.subsampledLayout
+  openxrExtensionStrings: XR_META_vulkan_swapchain_create_info
+  company: Meta
+  priority: 0
+  required: 0
 --- !u!114 &-2348268051816548304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,6 +774,7 @@ MonoBehaviour:
   - {fileID: 1148911664234322495}
   - {fileID: 845413221411138132}
   - {fileID: -2883259868714623340}
+  - {fileID: -2508344158716366951}
   - {fileID: -7689355192983156675}
   - {fileID: -2348268051816548304}
   - {fileID: -5749817523613353674}
@@ -763,6 +785,26 @@ MonoBehaviour:
   m_renderMode: 1
   m_depthSubmissionMode: 0
   m_symmetricProjection: 0
+--- !u!114 &6500687670063994156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710975c7840e7d499bbb3757c22b0a5, type: 3}
+  m_Name: MetaXRSubsampledLayout Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Meta XR Subsampled Layout
+  version: 0.0.1
+  featureIdInternal: com.meta.openxr.feature.subsampledLayout
+  openxrExtensionStrings: XR_META_vulkan_swapchain_create_info
+  company: Meta
+  priority: 0
+  required: 0
 --- !u!114 &7990836813675812575
 MonoBehaviour:
   m_ObjectHideFlags: 0
